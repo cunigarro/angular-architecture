@@ -36,7 +36,13 @@ export class TodoListStore extends Store<TodoListStoreState> implements OnDestro
   }
 
   private updateTasksState(tasks: Task[]) {
-
+    this.setState({
+      ...this.state,
+      taskListList: {
+          ...this.state.taskListList,
+          tasks: tasks,
+      }
+    });
   }
 
   ngOnDestroy(): void {
