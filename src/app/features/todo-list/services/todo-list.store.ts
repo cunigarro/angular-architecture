@@ -1,8 +1,46 @@
-import { Injectable } from "@angular/core";
+import { Injectable, OnDestroy } from "@angular/core";
+import { retry, Subject, switchMap, takeUntil, tap } from "rxjs";
 import { Store } from "src/app/shared/classes/store";
+import { Task } from "../types/task";
+import { TodoListEndpoint } from "./todo-list.endpoint";
 import { TodoListStoreState } from "./todo-list.store.state";
 
 @Injectable()
-export class CoffeeListStore extends Store<TodoListStoreState> {
+export class TodoListStore extends Store<TodoListStoreState> implements OnDestroy {
+  private ngUnsubscribe$: Subject<undefined> = new Subject();
+  private reloadTasks$: Subject<undefined> = new Subject();
 
+  constructor(
+    private todoListEntpoint: TodoListEndpoint
+  ) {
+    super(new TodoListStoreState());
+  }
+
+  init() {
+    this.initReloadTasks$();
+  }
+
+  private initReloadTasks$() {
+    this.reloadTasks$
+      .pipe(
+        switchMap(() => {
+          return this.todoListEntpoint.listTasks();
+        }),
+        tap((tasks: any) => {
+          this.updateTasksState(tasks);
+        }),
+        retry(),
+        takeUntil(this.ngUnsubscribe$)
+      )
+      .subscribe();
+  }
+
+  private updateTasksState(tasks: Task[]) {
+
+  }
+
+  ngOnDestroy(): void {
+    // this.ngUnsubscribe$.next();
+    this.ngUnsubscribe$.complete();
+  }
 }
