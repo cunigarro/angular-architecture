@@ -1,9 +1,23 @@
 {
-  "data": [
+  "user": [
     {
+      "id": 1,
       "name": "Christian"
-    }, {
+    },
+    {
+      "id": 2,
       "name": "Hola"
+    }
+  ],
+  "todo_list": [
+    {
+      "user_id": 1,
+      "list": [
+        {
+          "title": "Hacer las tareas de bla bla bla.",
+          "state": "Done"
+        }
+      ]
     }
   ]
 }
