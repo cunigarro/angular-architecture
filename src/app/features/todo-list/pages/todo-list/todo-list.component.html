@@ -1,5 +1,7 @@
 <div class="container mx-auto px-4">
-  <!-- <task-form></task-form> -->
+  <task-form
+    (sendTask)="getEvent($event)"
+  ></task-form>
 
   <ng-container *ngIf="{state$: todoListStore.state$ | async} as subs">
     <task-list

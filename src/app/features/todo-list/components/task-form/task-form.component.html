@@ -1,1 +1,7 @@
-Task form
+<form class="py-5" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  <input
+    class="border border-black rounded-none w-full p-2"
+    type="text"
+    formControlName="addTaskControl"
+  >
+</form>

@@ -16,6 +16,9 @@ export class TodoListComponent implements OnInit {
 
   ngOnInit(): void {
     this.todoListStore.init();
+  }
 
+  getEvent(resp: any) {
+    console.log(resp);
   }
 }

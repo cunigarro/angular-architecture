@@ -4,6 +4,7 @@ import { TodoListRoutingModule } from './todo-list-routing.module';
 import { TodoListComponent } from './pages/todo-list/todo-list.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { TaskListComponent } from './components/task-list/task-list.component';
   ],
   imports: [
     TodoListRoutingModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   exports: [],
   providers: [],
