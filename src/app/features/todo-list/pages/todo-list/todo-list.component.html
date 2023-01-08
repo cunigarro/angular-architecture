@@ -2,9 +2,11 @@
   <!-- <task-form></task-form>
   <task-list></task-list> -->
 
+  {{ todoListStore.state$ | async | json }}
+
   <ng-container *ngIf="{state$: todoListStore.state$ | async} as subs">
-    <div *ngFor="let task of subs?.state$?.tasks">
+    <!-- <div *ngFor="let task of subs?.state$">
       prueba
-    </div>
+    </div> -->
   </ng-container>
 </div>
