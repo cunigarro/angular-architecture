@@ -5,8 +5,7 @@ import { TodoListComponent } from './pages/todo-list/todo-list.component';
 const routes: Routes = [
   {
     path: '',
-    component: TodoListComponent,
-    pathMatch: 'full'
+    component: TodoListComponent
   }
 ];
 
