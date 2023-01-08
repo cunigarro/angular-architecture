@@ -1,1 +1,10 @@
-Task list
+<div class="p-2 border flex" *ngFor="let task of taskList">
+  <span class="flex-1">
+    {{ task.title }}
+  </span>
+  <button>
+    X
+  </button>
+</div>
+
+
