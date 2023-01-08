@@ -18,7 +18,12 @@ export class TodoListStore extends Store<TodoListStoreState> implements OnDestro
 
   init() {
     this.initReloadTasks$();
+    this.reloadTasks(this.state);
   }
+
+  reloadTasks(state: any): void {
+    this.reloadTasks$.next(state);
+}
 
   private initReloadTasks$() {
     this.reloadTasks$
