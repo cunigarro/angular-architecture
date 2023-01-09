@@ -2,7 +2,9 @@
   <span class="flex-1">
     {{ task.title }}
   </span>
-  <button>
+  <button
+    (click)="sendTaskId(task.id)"
+  >
     X
   </button>
 </div>

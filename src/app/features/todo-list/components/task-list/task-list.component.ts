@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Task } from '../../types/task';
 
 @Component({
@@ -9,8 +8,13 @@ import { Task } from '../../types/task';
 })
 export class TaskListComponent implements OnInit {
   @Input() taskList: Task[] | undefined;
+  @Output() removeTask = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void { }
+
+  sendTaskId(taskId: number | undefined) {
+    this.removeTask.emit(taskId);
+  }
 }

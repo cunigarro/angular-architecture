@@ -14,4 +14,8 @@ export class TodoListEndpoint {
   addTask(task: Task) {
     return this.http.post(`${environment.apiBaseUrl}/todo_list`, task);
   }
+
+  removeTask(idTask: number) {
+    return this.http.delete(`${environment.apiBaseUrl}/todo_list/${idTask}`);
+  }
 }

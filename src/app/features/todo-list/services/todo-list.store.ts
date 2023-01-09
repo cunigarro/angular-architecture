@@ -72,6 +72,18 @@ export class TodoListStore extends Store<TodoListStoreState> implements OnDestro
     }); */
   }
 
+  removeTask(idTask: number) {
+    const request$ = this.todoListEntpoint.removeTask(idTask);
+
+    request$
+      .pipe(
+          tap(() => {
+              this.reloadTasks(this.state);
+          })
+      )
+      .subscribe();
+  }
+
   ngOnDestroy(): void {
     // this.ngUnsubscribe$.next();
     this.ngUnsubscribe$.complete();

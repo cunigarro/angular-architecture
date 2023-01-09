@@ -18,10 +18,14 @@ export class TodoListComponent implements OnInit {
     this.todoListStore.init();
   }
 
-  getEvent(resp: any) {
+  AddTaskEvent(resp: any) {
     this.todoListStore.addTask({
       title: resp,
       state: 'Done'
     })
+  }
+
+  removeTaskEvent(resp: any) {
+    this.todoListStore.removeTask(resp);
   }
 }
