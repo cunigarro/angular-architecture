@@ -9,7 +9,7 @@ import { Task } from '../../types/task';
 export class TaskFormComponent implements OnInit {
   taskForm: FormGroup = new FormGroup({});
   @Output() sendTask = new EventEmitter();
-  @Input() taskToEdit: Task | undefined;
+  @Input() taskToEdit: Task | null | undefined;
 
   constructor(
     private formBuilder: FormBuilder
@@ -17,12 +17,12 @@ export class TaskFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.taskForm = this.formBuilder.group({
-      addTaskControl: ['', [Validators.required]]
+      addTaskControl: [null, [Validators.required]]
     })
   }
 
   onSubmit() {
-    if(this.taskForm.value.addTaskControl != '') {
+    if(this.taskForm.value.addTaskControl != null) {
       if(this.taskToEdit != null) {
         this.sendTask.emit({
           id: this.taskToEdit.id,
@@ -34,6 +34,7 @@ export class TaskFormComponent implements OnInit {
       }
     }
 
+    this.taskToEdit = null;
     this.taskForm.reset();
   }
 }

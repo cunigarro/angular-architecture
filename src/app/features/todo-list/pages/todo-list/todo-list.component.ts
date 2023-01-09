@@ -11,7 +11,7 @@ import { Task } from '../../types/task';
   ]
 })
 export class TodoListComponent implements OnInit {
-  taskToEdit: Task | undefined;
+  taskToEdit: Task | undefined | null;
 
   constructor(
     public todoListStore: TodoListStore
@@ -24,6 +24,7 @@ export class TodoListComponent implements OnInit {
   addTaskEvent(resp: any) {
     if(this.taskToEdit != null) {
       this.todoListStore.editTask(resp)
+      this.taskToEdit = null;
     } else {
       this.todoListStore.addTask({
         title: resp,
