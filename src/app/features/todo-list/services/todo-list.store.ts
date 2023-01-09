@@ -72,6 +72,18 @@ export class TodoListStore extends Store<TodoListStoreState> implements OnDestro
     }); */
   }
 
+  editTask(task: Task) {
+    const request$ = this.todoListEntpoint.editTask(task);
+
+    request$
+      .pipe(
+          tap(() => {
+              this.reloadTasks(this.state);
+          })
+      )
+      .subscribe();
+  }
+
   removeTask(idTask: number) {
     const request$ = this.todoListEntpoint.removeTask(idTask);
 

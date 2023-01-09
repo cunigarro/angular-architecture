@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoListEndpoint } from '../../services/todo-list.endpoint';
 import { TodoListStore } from '../../services/todo-list.store';
+import { Task } from '../../types/task';
 
 @Component({
   templateUrl: './todo-list.component.html',
@@ -10,6 +11,8 @@ import { TodoListStore } from '../../services/todo-list.store';
   ]
 })
 export class TodoListComponent implements OnInit {
+  taskToEdit: Task | undefined;
+
   constructor(
     public todoListStore: TodoListStore
   ) { }
@@ -18,11 +21,19 @@ export class TodoListComponent implements OnInit {
     this.todoListStore.init();
   }
 
-  AddTaskEvent(resp: any) {
-    this.todoListStore.addTask({
-      title: resp,
-      state: 'Done'
-    })
+  addTaskEvent(resp: any) {
+    if(this.taskToEdit != null) {
+      this.todoListStore.editTask(resp)
+    } else {
+      this.todoListStore.addTask({
+        title: resp,
+        state: 'Done'
+      });
+    }
+  }
+
+  editTaskEvent(resp: any) {
+    this.taskToEdit = resp;
   }
 
   removeTaskEvent(resp: any) {

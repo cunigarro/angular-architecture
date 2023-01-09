@@ -9,12 +9,17 @@ import { Task } from '../../types/task';
 export class TaskListComponent implements OnInit {
   @Input() taskList: Task[] | undefined;
   @Output() removeTask = new EventEmitter();
+  @Output() editTask = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void { }
 
-  sendTaskId(taskId: number | undefined) {
+  sendTaskIdToRemove(taskId: number | undefined) {
     this.removeTask.emit(taskId);
+  }
+
+  sendTaskIdToEdit(task: Task) {
+    this.editTask.emit(task);
   }
 }

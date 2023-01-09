@@ -11,44 +11,19 @@
   ],
   "todo_list": [
     {
-      "title": "Hacer tal cosas",
-      "state": "Done",
-      "id": 1
+      "id": 1,
+      "title": "Hacer tal cos",
+      "status": "Done"
     },
     {
-      "title": "Hacer tal cosas",
-      "state": "Done",
-      "id": 2
+      "id": 2,
+      "title": "gwerhwerwfqwe",
+      "status": "Done"
     },
     {
-      "title": "Hacer tal cosas",
-      "state": "Done",
-      "id": 3
-    },
-    {
-      "title": "fqwegq",
-      "state": "Done",
-      "id": 4
-    },
-    {
-      "title": "fqwefq",
-      "state": "Done",
-      "id": 5
-    },
-    {
-      "title": "fqwegwq",
-      "state": "Done",
-      "id": 6
-    },
-    {
-      "title": "fqwegqhweergqrgwe",
-      "state": "Done",
-      "id": 7
-    },
-    {
-      "title": "fqweqwegqwefqwef",
-      "state": "Done",
-      "id": 8
+      "id": 7,
+      "title": "Hola",
+      "status": "Done"
     }
   ]
 }

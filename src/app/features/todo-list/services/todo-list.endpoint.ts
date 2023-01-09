@@ -18,4 +18,8 @@ export class TodoListEndpoint {
   removeTask(idTask: number) {
     return this.http.delete(`${environment.apiBaseUrl}/todo_list/${idTask}`);
   }
+
+  editTask(task: Task) {
+    return this.http.put(`${environment.apiBaseUrl}/todo_list/${task.id}`, task);
+  }
 }

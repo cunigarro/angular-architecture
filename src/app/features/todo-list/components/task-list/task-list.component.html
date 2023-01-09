@@ -1,9 +1,12 @@
 <div class="p-2 border flex" *ngFor="let task of taskList">
-  <span class="flex-1">
-    {{ task.title }}
-  </span>
   <button
-    (click)="sendTaskId(task.id)"
+    class="flex-1 text-left"
+    (click)="sendTaskIdToEdit(task)"
+  >
+    {{ task.title }}
+  </button>
+  <button
+    (click)="sendTaskIdToRemove(task.id)"
   >
     X
   </button>
