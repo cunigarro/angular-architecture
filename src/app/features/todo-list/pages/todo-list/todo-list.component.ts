@@ -19,6 +19,9 @@ export class TodoListComponent implements OnInit {
   }
 
   getEvent(resp: any) {
-    console.log(resp);
+    this.todoListStore.addTask({
+      title: resp,
+      state: 'Done'
+    })
   }
 }
