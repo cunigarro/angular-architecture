@@ -19,11 +19,8 @@ export class TaskFormComponent implements OnInit {
     })
   }
 
-  sendTaskCta(event: any) {
-    this.sendTask.emit();
-  }
-
   onSubmit() {
     this.sendTask.emit(this.taskForm.value.addTaskControl);
+    this.taskForm.reset();
   }
 }
